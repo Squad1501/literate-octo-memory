@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Block with Copy Button</title>
+    <style>
+        pre {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <pre id="codeBlock">
+&lt;div&gt;
+    &lt;p&gt;Hello, World!&lt;/p&gt;
+&lt;/div&gt;
+    </pre>
+    <button onclick="copyToClipboard()">Copy to Clipboard</button>
+
+    <script>
+        function copyToClipboard() {
+            var range = document.createRange();
+            range.selectNode(document.getElementById("codeBlock"));
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+            alert("Code copied to clipboard!");
+        }
+    </script>
+</body>
+</html>

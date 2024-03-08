@@ -1,0 +1,22 @@
+<div>
+    <pre id="code">
+        <code>
+            // This is some code
+            console.log('Hello, world!');
+        </code>
+    </pre>
+    <button onclick="copyCodeToClipboard()">Copy</button>
+</div>
+
+<script>
+    function copyCodeToClipboard() {
+        var code = document.getElementById('code').innerText;
+        var dummy = document.createElement('textarea');
+        document.body.appendChild(dummy);
+        dummy.value = code;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        alert('Code copied to clipboard');
+    }
+</script>
